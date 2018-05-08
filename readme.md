@@ -1,3 +1,14 @@
+# Starting the application
+```
+    git clone https://github.com/karicabh/spring-petclinic
+    cd spring-petclinic/
+    docker-compose build
+    docker-compose up
+```
+### Requirements
+* docker
+* docker-compose
+
 # Spring PetClinic Sample Application [![Build Status](https://travis-ci.org/spring-projects/spring-petclinic.png?branch=master)](https://travis-ci.org/spring-projects/spring-petclinic/)
 
 ## Understanding the Spring Petclinic application with a few diagrams

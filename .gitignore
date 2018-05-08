@@ -4,7 +4,6 @@ target/*
 .project
 .idea
 *.iml
-/target
 .sts4-cache/
 .vscode/*
 !.vscode/settings.json
@@ -12,3 +11,4 @@ target/*
 !.vscode/launch.json
 !.vscode/extensions.json
 _site/
+!target/Dockerfile

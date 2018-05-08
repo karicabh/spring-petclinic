@@ -8,6 +8,6 @@
       volumes:
         - "./conf.d:/etc/mysql/conf.d:ro"
     target:
-      build: target
+      build: .
       ports:
           - "8080:8080"

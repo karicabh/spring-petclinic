@@ -2,10 +2,11 @@ cd ..
 
 docker volume create data 
 
-docker build -t=karic/mvn exampledocker/prebuild
  
 docker build -t=karic/mvnbld .
-docker run  -v data:/data karic/mvnbld
+#find for a root user where is .m2 located and mount it with -v /host/directory:/container/directory
+# -v ~/.m2:/root/.m2
+docker run  -v data:/data -v ~/.m2:/root/.m2 karic/mvnbld
 
 docker build -t=karic/deploy exampledocker/deploy
-docker run  -p 8080:8080 -v data:/data karic/deploy
+docker run  -p 8080:8080 -v data:/data -v ~/.m2:/root/.m2 karic/deploy

@@ -1,13 +1,30 @@
-    mysql:
-      image: mysql
-      ports:
-        - "3306:3306"
-      environment:
-        - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=test
-      volumes:
-        - "./conf.d:/etc/mysql/conf.d:ro"
-    target:
-      build: .
-      ports:
-          - "8080:8080"
+version: '3'
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
+        
+  builds:
+    build: .
+    volumes:
+        - data:/data
+  
+  deploy:
+    build: deploy
+    ports:
+        - "8080:8080"
+    volumes:
+        - data:/data
+    depends_on:
+        -  builds
+         
+
+volumes:
+  data:
+
